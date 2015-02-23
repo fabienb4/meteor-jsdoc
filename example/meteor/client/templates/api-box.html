@@ -16,10 +16,10 @@
         <p>{{summary}}</p>
       </div>
 
-      {{#if params}}
+      {{#if paramsNoOptions}}
         <h4>Arguments</h4>
         <dl class="args">
-          {{#each params}}
+          {{#each paramsNoOptions}}
             {{> api_box_args}}
           {{/each}}
         </dl>

@@ -59,7 +59,11 @@ Template.autoApiBox.helpers({
       var beforeParens;
 
       if (this.scope === "instance") {
-        beforeParens = "<em>" + apiData(this.memberof).instancename + "</em>." + this.name;
+        if (apiData(this.memberof)) {
+          beforeParens = "<em>" + apiData(this.memberof).instancename + "</em>." + this.name;
+        } else {
+          beforeParens = escapedLongname;
+        }
       } else if (this.kind === "class") {
         beforeParens = "new " + escapedLongname;
       } else {
@@ -88,6 +92,11 @@ Template.autoApiBox.helpers({
   },
   id: function () {
     return this.longname.replace(/[.#]/g, "-");
+  },
+  paramsNoOptions: function () {
+    return _.reject(this.params, function (param) {
+      return param.name === "options";
+    });
   }
 });
 
