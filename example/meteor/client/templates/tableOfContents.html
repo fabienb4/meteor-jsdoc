@@ -6,7 +6,12 @@
 
 <template name="nav">
   <h1>Docs</h1>
-  <br />
+  <div class="options">
+    <label class="show-all-types">
+      <input type="checkbox" checked="{{showAllTypes}}" />
+      Show all types
+    </label>
+  </div>
   {{#each sections}}
     {{#if type "spacer"}}
       <div class="spacer"> </div>

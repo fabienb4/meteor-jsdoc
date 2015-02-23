@@ -22,6 +22,43 @@ var apiData = function (options) {
   return root;
 };
 
+var changeNamesIfNeeded = function(nameList) {
+  return _.map(nameList, function (name) {
+    // decode the "Array.<Type>" syntax
+    if (name.slice(0, 7) === "Array.<") {
+      // get the part inside angle brackets like in Array<String>
+      name = name.match(/<([^>]+)>/)[1];
+
+      if (name) {
+        return "Array of " + name + "s";
+      }
+
+      console.log("no array type defined");
+      return "Array";
+    }
+
+    return name;
+  });
+};
+
+var toOrSentence = function (array) {
+  if (array.length === 1) {
+    return array[0];
+  } else if (array.length === 2) {
+    return array.join(" or ");
+  }
+
+  return _.initial(array).join(", ") + ", or " + _.last(array);
+};
+
+var typeNames = function(nameList) {
+  // change names if necessary
+  nameList = changeNamesIfNeeded(nameList);
+  nameList = _.flatten(nameList);
+
+  return toOrSentence(nameList);
+};
+
 Template.autoApiBox.helpers({
   apiData: apiData,
   signature: function () {
@@ -90,6 +127,13 @@ Template.autoApiBox.helpers({
 
     return signature;
   },
+  typeNames: function() {
+    if (Session.get("showAllTypes") && this.type) {
+      return typeNames(this.type.names);
+    }
+
+    return undefined;
+  },
   id: function () {
     return this.longname.replace(/[.#]/g, "-");
   },
@@ -100,40 +144,8 @@ Template.autoApiBox.helpers({
   }
 });
 
-var toOrSentence = function (array) {
-  if (array.length === 1) {
-    return array[0];
-  } else if (array.length === 2) {
-    return array.join(" or ");
-  }
-
-  return _.initial(array).join(", ") + ", or " + _.last(array);
-};
-
 Template.api_box_args.helpers({
   typeNames: function () {
-    var nameList = this.type.names;
-
-    // change names if necessary
-    nameList = _.map(nameList, function (name) {
-      // decode the "Array.<Type>" syntax
-      if (name.slice(0, 7) === "Array.<") {
-        // get the part inside angle brackets like in Array<String>
-        name = name.match(/<([^>]+)>/)[1];
-
-        if (name) {
-          return "Array of " + name + "s";
-        }
-
-        console.log("no array type defined");
-        return "Array";
-      }
-
-      return name;
-    });
-
-    nameList = _.flatten(nameList);
-
-    return toOrSentence(nameList);
+    return typeNames(this.type.names);
   }
 });

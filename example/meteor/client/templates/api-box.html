@@ -13,7 +13,12 @@
       {{> apiBoxTitle name=signature locus=locus id=id}}
 
       <div class="desc">
-        <p>{{summary}}</p>
+        <p>
+          {{#if typeNames}}
+            <span class="type">{{{typeNames}}}</span>
+          {{/if}}
+          {{summary}}
+        </p>
       </div>
 
       {{#if paramsNoOptions}}
