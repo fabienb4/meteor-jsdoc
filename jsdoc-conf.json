@@ -1,0 +1,8 @@
+{
+  "source": {
+    "exclude": [
+      ".meteor",
+      "node_modules"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "meteor-jsdoc",
+  "version": "0.1.0",
+  "description": "Automated JSDoc generation for Meteor projects with a Meteor server to output the docs.",
+  "dependencies": {
+    "ejs": "0.8.x",
+    "cjson": "0.3.x",
+    "colors": "0.6.x",
+    "jsdoc": "3.3.x",
+    "canonical-json": "0.0.x",
+    "underscore": "1.8.x"
+  },
+  "bin": {
+    "meteor-jsdoc": "./bin/meteor-jsdoc"
+  },
+  "author": "Fabien Blanchard <fabienb4.b4soft@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fabienb4/meteor-jsdoc.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabienb4/meteor-jsdoc/issues"
+  },
+  "homepage": "https://github.com/fabienb4/meteor-jsdoc"
+}

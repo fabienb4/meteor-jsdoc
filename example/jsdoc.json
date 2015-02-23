@@ -1,0 +1,8 @@
+{
+  // Meteor project path
+  "projectPath": "~/myproject",
+  // Project docs path
+  "docsPath": "~/myproject-docs",
+  // Project docs Meteor server port
+  "meteorPort": 3333
+}
