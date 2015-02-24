@@ -9,7 +9,7 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 - [Features](#features)
 - [Installation](#installation)
 - [Initializing a project](#initializing-a-project)
-- [Example file](#example-file)
+- [Config file](#config-file)
 - [Adding documentation to your project](#adding-documentation-to-your-project)
 - [Building the docs](#building-the-docs)
 - [Starting the Meteor server](#starting-the-meteor-server)
@@ -21,6 +21,7 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 * Based on the scripts & templates from Meteor own docs.
 * The generated docs are used as data by a Meteor app which displays a nicely formatted documentation for your app (like the [Meteor Docs](http://docs.meteor.com/#/full/)) at `http://localhost/3333/` (configurable).
 * A configuration file allows project based configuration, avoiding problem of _port already in use_.
+* Markdown supported in `@summary`, `@example` & description in `@param`.
 
 ### Installation
 
@@ -32,10 +33,10 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
     cd myproject
     meteor-jsdoc init
 
-This will create a file in your Meteor project directory:
+This will create a config file in your Meteor project directory:
 `jsdoc.json`.
 
-### Example file
+### Config file
 
 ```js
 {
@@ -44,7 +45,11 @@ This will create a file in your Meteor project directory:
   // Project docs path
   "docsPath": "~/myproject-docs",
   // Project docs Meteor server port
-  "meteorPort": 3333
+  "meteorPort": 3333,
+  // Copy the Meteor docs server before building the docs (required for the first build)
+  // Setting this to false after the first build allows you to customize the Meteor docs server
+  // without seeing your changes overridden the next time you build the docs.
+  "initMeteor": true
 }
 ```
 
@@ -52,11 +57,13 @@ This will create a file in your Meteor project directory:
 
 "~" can be used to specify your home directory.
 
+When using `meteor-jsdoc build` for the first time, it requires the `initMeteor` setting to be true, otherwise, only the data files will be copied, and you won't be able to start the docs server (there will be none).
+
 ### Adding documentation to your project
 
 Some examples from the `mongo` package:
 
-> The ```@summary``` tag is required for the docs to be generated properly.
+> The `@summary` tag is required for the docs to be generated properly. Any method docs without it won't be processed by `meteor-jsdoc`.
 
 ```js
 /**
