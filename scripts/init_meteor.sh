@@ -2,4 +2,4 @@
 
 mkdir -p <%= docsPath %>
 
-cp -Rf <%= meteorFiles %>/. <%= docsPath %>/
+cp -Ru <%= meteorFiles %>/. <%= docsPath %>/
