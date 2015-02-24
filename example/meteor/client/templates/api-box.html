@@ -17,8 +17,8 @@
           {{#if typeNames}}
             <span class="type">{{{typeNames}}}</span>
           {{/if}}
-          {{summary}}
         </p>
+        {{#markdown}}{{summary}}{{/markdown}}
       </div>
 
       {{#if paramsNoOptions}}
@@ -43,10 +43,17 @@
         <h4>Returns</h4>
         <dl class="args">
           {{#each returns}}
-            {{> api_box_args}}
+              {{> api_box_args}}
           {{/each}}
         </dl>
       {{/if}}
+
+      {{#if examples}}
+        <h4>Example</h4>
+      {{/if}}
+      {{#each examples}}
+        {{> api_box_eg}}
+      {{/each}}
     </div>
   {{/with}}
 </template>
@@ -60,7 +67,11 @@
       {{{typeNames}}}
     </span>
   </dt>
-  <dd>
-    <p>{{{description}}}</p>
-  </dd>
+  <dd>{{#markdown}}{{{description}}}{{/markdown}}</dd>
+</template>
+
+<template name="api_box_eg">
+{{#markdown}}
+{{{this}}}
+{{/markdown}}
 </template>

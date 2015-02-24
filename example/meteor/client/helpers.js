@@ -43,5 +43,5 @@ Template.registerHelper("type", function(what) {
 });
 
 Template.registerHelper("depthIs", function (n) {
-    return this.depth === n;
+  return this.depth === n;
 });

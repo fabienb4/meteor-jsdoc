@@ -149,3 +149,14 @@ Template.api_box_args.helpers({
     return typeNames(this.type.names);
   }
 });
+
+Template.api_box_eg.rendered = function () {
+  hljs.configure({
+    tabReplace: "  ",
+    useBR: true,
+    languages: ["javascript", "css", "json", "coffeescript"]
+  });
+  this.$("code").each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+};

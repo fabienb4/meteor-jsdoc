@@ -6,3 +6,5 @@
 
 meteor-platform
 less
+markdown
+simple:highlight.js
