@@ -40,11 +40,15 @@ This will create a config file in your Meteor project directory:
 
 ```js
 {
+  // node.js install path, default to: "/usr/bin/node"
+  "nodePath": "/usr/bin/node",
+  // jsdoc install path, default to: "/usr/bin/jsdoc"
+  "jsdocPath": "/usr/bin/jsdoc",
   // Meteor project path
   "projectPath": "~/myproject",
   // Project docs path
   "docsPath": "~/myproject-docs",
-  // Project docs Meteor server port
+  // Project docs Meteor server port, default to: 3333
   "meteorPort": 3333,
   // Copy the Meteor docs server before building the docs (required for the first build)
   // Setting this to false after the first build allows you to customize the Meteor docs server
