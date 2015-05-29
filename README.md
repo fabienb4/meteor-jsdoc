@@ -42,8 +42,6 @@ This will create a config file in your Meteor project directory:
 {
   // node.js install path, default to: "/usr/bin/node"
   "nodePath": "/usr/bin/node",
-  // jsdoc install path, default to: "/usr/bin/jsdoc"
-  "jsdocPath": "/usr/bin/jsdoc",
   // Meteor project path
   "projectPath": "~/myproject",
   // Project docs path
