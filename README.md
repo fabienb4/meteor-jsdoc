@@ -42,8 +42,6 @@ This will create a config file in your Meteor project directory:
 {
   // node.js install path, default to: "/usr/bin/node"
   "nodePath": "/usr/bin/node",
-  // Meteor project path
-  "projectPath": "~/myproject",
   // Project docs path
   "docsPath": "~/myproject-docs",
   // Project docs Meteor server port, default to: 3333
@@ -55,7 +53,7 @@ This will create a config file in your Meteor project directory:
 }
 ```
 
-`<projectPath>` and `<docsPath>` have to be two separate folders, or you will end up with a Meteor server inside a Meteor server.
+`<docsPath>` has to be in a different folder than your project, or you will end up with a Meteor server inside a Meteor server.
 
 "~" can be used to specify your home directory.
 
@@ -113,13 +111,12 @@ find: function (/* selector, options */) {
 
     meteor-jsdoc build
 
-This will copy a basic Meteor server (`v1.0.3.1
-`) to the `<docsPath>` directory.
-And then build the documentation for `<projectPath>` in `<docsPath>/client/data`.
+This will copy a basic Meteor server (`v1.1.0.2`) to the `<docsPath>` directory.
+And then build the documentation for your project in `<docsPath>/client/data`.
 
 ### Starting the Meteor server
 
-From the `<projectPath>` folder you have two options:
+From your project folder you have two options:
 
 First:
 
@@ -136,7 +133,7 @@ This will start Meteor as usual with the possibility to `ctrl+c` when you want t
 
 ### Stopping the Meteor server
 
-If you started the Meteor server for the docs using `meteor-jsdoc start`, and want to stop it, the following command (to run from the `<projectPath>` folder) is available:
+If you started the Meteor server for the docs using `meteor-jsdoc start`, and want to stop it, the following command (to run from your project folder) is available:
 
     meteor-jsdoc stop
 

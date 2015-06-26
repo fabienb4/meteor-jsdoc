@@ -5,6 +5,11 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.3.1
+
+- `projectPath` is now retrieved automatically. It can safely be removed from the `jsdoc.json` file.
+- Cleaned up some old code.
+
 ### 0.3.0
 
 - `jsdocPath` is now retrieved automatically. It can safely be removed from the `jsdoc.json` file.
