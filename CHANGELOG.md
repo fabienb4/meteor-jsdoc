@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.3.2
+
+- `jsdoc-conf.json` file is now copied in your project to allow you to customize options passed to jsdoc.
+
 ### 0.3.1
 
 - `projectPath` is now retrieved automatically. It can safely be removed from the `jsdoc.json` file.
