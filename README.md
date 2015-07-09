@@ -59,6 +59,8 @@ This will create a config file in your Meteor project directory:
 
 When using `meteor-jsdoc build` for the first time, it requires the `initMeteor` setting to be true, otherwise, only the data files will be copied, and you won't be able to start the docs server (there will be none).
 
+> For the `jsdoc-conf.json` file see: [Configuring JSDoc](http://usejsdoc.org/about-configuring-jsdoc.html).
+
 ### Adding documentation to your project
 
 Some examples from the `mongo` package:
