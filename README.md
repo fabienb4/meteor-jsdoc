@@ -40,7 +40,7 @@ This will create a config file in your Meteor project directory:
 
 ```js
 {
-  // node.js install path, default to: "/usr/bin/node"
+  // node.js install path, default to: "`which node`"
   "nodePath": "/usr/bin/node",
   // Project docs path
   "docsPath": "~/myproject-docs",
