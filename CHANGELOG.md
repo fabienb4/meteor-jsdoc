@@ -5,6 +5,11 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.4.0
+
+- `nodePath` is now retrieved automatically if not specified (using `which node`).
+- Updated dependencies.
+
 ### 0.3.2
 
 - `jsdoc-conf.json` file is now copied in your project to allow you to customize options passed to jsdoc.
