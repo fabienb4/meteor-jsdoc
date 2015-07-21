@@ -5,6 +5,11 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.4.1
+
+- `nodePath` config default is now empty (`which node` is used if not specified).
+- Improved some config checks.
+
 ### 0.4.0
 
 - `nodePath` is now retrieved automatically if not specified (using `which node`).
