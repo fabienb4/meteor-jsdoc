@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.4.2
+
+- Remove new line special character in `which node` output.
+
 ### 0.4.1
 
 - `nodePath` config default is now empty (`which node` is used if not specified).
