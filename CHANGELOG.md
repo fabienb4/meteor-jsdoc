@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.5.0
+
+- Switched to development version of jsdoc to provide ES6 support until officially released.
+
 ### 0.4.2
 
 - Remove new line special character in `which node` output.
