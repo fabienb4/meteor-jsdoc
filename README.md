@@ -4,6 +4,8 @@
 
 Meteor JSDoc is a command line tool which will help with generating documentation for your Meteor project. The result? A website like [Meteor Docs](http://docs.meteor.com/#/full/).
 
+> meteor-jsdoc now uses the development version of jsdoc to provide ES6 support until it is officially released. You might encounter some issues due to jsdoc itself not meteor-jsdoc. If you don't need ES6 support see [Installation](#installation) to install the last version of meteor-jsdoc which isn't using the development version of jsdoc.
+
 **Table of Contents**
 
 - [Features](#features)
@@ -26,6 +28,10 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 ### Installation
 
     npm install -g meteor-jsdoc
+
+If you are having issues and don't need ES6 support, use:
+
+    npm install -g meteor-jsdoc@0.4.2
 
 ### Initializing a project
 
