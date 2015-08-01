@@ -5,6 +5,11 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.5.1
+
+- Added jsdoc errors & warnings logging support.
+- Updated build scripts to match Meteor's.
+
 ### 0.5.0
 
 - Switched to development version of jsdoc to provide ES6 support until officially released.
