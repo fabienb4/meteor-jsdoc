@@ -8,7 +8,7 @@
     "colors": "1.1.x",
     "jsdoc": "jsdoc3/jsdoc",
     "canonical-json": "0.0.x",
-    "underscore": "1.8.x"
+    "lodash": "3.10.x"
   },
   "bin": {
     "meteor-jsdoc": "./bin/meteor-jsdoc"

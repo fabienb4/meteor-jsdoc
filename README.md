@@ -88,7 +88,7 @@ Some examples from the `mongo` package:
 The default id generation technique is `'STRING'`.
  * @param {Function} options.transform An optional transformation function. Documents will be passed through this function before being returned from `fetch` or `findOne`, and before being passed to callbacks of `observe`, `map`, `forEach`, `allow`, and `deny`. Transforms are *not* applied for the callbacks of `observeChanges` or to cursors returned from publish functions.
  */
-Mongo.Collection = function (name, options) {
+Mongo.Collection = function(name, options) {
   /** ... **/
 };
 ```
@@ -110,7 +110,7 @@ Mongo.Collection = function (name, options) {
  * @param {Function} options.transform Overrides `transform` on the  [`Collection`](#collections) for this cursor.  Pass `null` to disable transformation.
  * @returns {Mongo.Cursor}
  */
-find: function (/* selector, options */) {
+find: function(/* selector, options */) {
   /** ... **/
 }
 ```

@@ -1,4 +1,4 @@
-var apiData = function (options) {
+var apiData = function(options) {
   options = options || {};
 
   if (typeof options === "string") {
@@ -14,7 +14,7 @@ var apiData = function (options) {
   if (_.has(options, 'options')) {
     root = _.clone(root);
     var includedOptions = options.options.split(';');
-    root.options = _.filter(root.options, function (option) {
+    root.options = _.filter(root.options, function(option) {
       return _.contains(includedOptions, option.name);
     });
   }
@@ -23,7 +23,7 @@ var apiData = function (options) {
 };
 
 var changeNamesIfNeeded = function(nameList) {
-  return _.map(nameList, function (name) {
+  return _.map(nameList, function(name) {
     // decode the "Array.<Type>" syntax
     if (name.slice(0, 7) === "Array.<") {
       // get the part inside angle brackets like in Array<String>
@@ -41,7 +41,7 @@ var changeNamesIfNeeded = function(nameList) {
   });
 };
 
-var toOrSentence = function (array) {
+var toOrSentence = function(array) {
   if (array.length === 1) {
     return array[0];
   } else if (array.length === 2) {
@@ -61,7 +61,7 @@ var typeNames = function(nameList) {
 
 Template.autoApiBox.helpers({
   apiData: apiData,
-  signature: function () {
+  signature: function() {
     var signature;
     var escapedLongname = _.escape(this.longname);
     var params, paramNames;
@@ -77,7 +77,7 @@ Template.autoApiBox.helpers({
 
       params = this.params;
 
-      paramNames = _.map(params, function (param) {
+      paramNames = _.map(params, function(param) {
         var name = param.name;
 
         name = name + "=" + name;
@@ -113,7 +113,7 @@ Template.autoApiBox.helpers({
       if (_.contains(["function", "class"], this.kind)) {
         params = this.params;
 
-        paramNames = _.map(params, function (param) {
+        paramNames = _.map(params, function(param) {
           if (param.optional) {
             return "[" + param.name + "]";
           }
@@ -134,23 +134,23 @@ Template.autoApiBox.helpers({
 
     return undefined;
   },
-  id: function () {
+  id: function() {
     return this.longname.replace(/[.#]/g, "-");
   },
-  paramsNoOptions: function () {
-    return _.reject(this.params, function (param) {
+  paramsNoOptions: function() {
+    return _.reject(this.params, function(param) {
       return param.name === "options";
     });
   }
 });
 
 Template.api_box_args.helpers({
-  typeNames: function () {
+  typeNames: function() {
     return typeNames(this.type.names);
   }
 });
 
-Template.api_box_eg.rendered = function () {
+Template.api_box_eg.rendered = function() {
   hljs.configure({
     tabReplace: "  ",
     useBR: true,

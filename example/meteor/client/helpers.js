@@ -1,7 +1,7 @@
 Template.registerHelper("sections", function() {
   var ret = [];
-  var walk = function (items, depth) {
-    _.each(items, function (item) {
+  var walk = function(items, depth) {
+    _.each(items, function(item) {
       // Work around (eg) accidental trailing commas leading to spurious holes
       // in IE8.
       if (!item)
@@ -42,6 +42,6 @@ Template.registerHelper("type", function(what) {
   return this.type === what;
 });
 
-Template.registerHelper("depthIs", function (n) {
+Template.registerHelper("depthIs", function(n) {
   return this.depth === n;
 });

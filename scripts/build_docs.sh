@@ -11,4 +11,5 @@ git grep -al --no-index "@summary" | xargs -L 10000 -t \
     <%= jsdocPath %> \
     -t <%= jsdocTmplPath %> \
     -c <%= jsdocConf %> \
-    -d $DOCS_PATH
+    -d $DOCS_PATH \
+    2>&1
