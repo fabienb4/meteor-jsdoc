@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.5.2
+
+- Added preamble support.
+
 ### 0.5.1
 
 - Added jsdoc errors & warnings logging support.
