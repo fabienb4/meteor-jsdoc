@@ -1,5 +1,5 @@
 Template.docs.helpers({
-  docs: function() {
-    return DocsNames;
+  preamble: function() {
+    return DocsPreamble;
   }
 });
