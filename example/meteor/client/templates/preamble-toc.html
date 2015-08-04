@@ -1,0 +1,29 @@
+<template name="preambleToc">
+  {{#each links}}
+    {{#if tagNameIs "H1"}}
+      <h1><a href="#{{id}}">{{innerText}}</a></h1>
+    {{else}}
+      {{#if tagNameIs "H2"}}
+        <h2><a href="#{{id}}">{{innerText}}</a></h2>
+      {{else}}
+        {{#if tagNameIs "H3"}}
+          <h3><a href="#{{id}}">{{innerText}}</a></h3>
+        {{else}}
+          {{#if tagNameIs "H4"}}
+            <h4><a href="#{{id}}">{{innerText}}</a></h4>
+          {{else}}
+            {{#if tagNameIs "H5"}}
+              <h5><a href="#{{id}}">{{innerText}}</a></h5>
+            {{else}}
+              {{#if tagNameIs "H6"}}
+                <h6><a href="#{{id}}">{{innerText}}</a></h6>
+              {{else}}
+                <a href="#{{id}}">{{innerText}}</a>
+              {{/if}}
+            {{/if}}
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    {{/if}}
+  {{/each}}
+</template>

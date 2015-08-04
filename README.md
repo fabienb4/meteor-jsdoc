@@ -12,6 +12,7 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 - [Installation](#installation)
 - [Initializing a project](#initializing-a-project)
 - [Config file](#config-file)
+- [Preamble](#preamble)
 - [Adding documentation to your project](#adding-documentation-to-your-project)
 - [Building the docs](#building-the-docs)
 - [Starting the Meteor server](#starting-the-meteor-server)
@@ -56,8 +57,8 @@ This will create a config file in your Meteor project directory:
   // Setting this to false after the first build allows you to customize the Meteor docs server
   // without seeing your changes overridden the next time you build the docs.
   "initMeteor": true,
-  // Preamble to your project's docs. Will appear at the top of the docs. Support any HTML tags.
-  "preamble": "<h2>Meteor Jsdoc Project</h2><hr>"
+  // Add a preamble to your project's docs that will appear at the top of the docs.
+  "preamble": true
 }
 ```
 
@@ -68,6 +69,53 @@ This will create a config file in your Meteor project directory:
 When using `meteor-jsdoc build` for the first time, it requires the `initMeteor` setting to be true, otherwise, only the data files will be copied, and you won't be able to start the docs server (there will be none).
 
 > For the `jsdoc-conf.json` file see: [Configuring JSDoc](http://usejsdoc.org/about-configuring-jsdoc.html).
+
+### Preamble
+
+If you want to add a preamble to your project's docs, you need to enable the option in `jsdoc.json` (enabled by default).
+
+```js
+  "preamble": true
+```
+
+When building the docs, a file named `preamble.md` will be copied inside `<docsPath>/client/templates`.
+
+> The default preamble will NOT be copied if it is detected in your project's docs, so you can leave `preamble` to `true` in `jsdoc.conf`.
+
+You can edit it to add any content you want, it will be displayed at the top of your project's docs. **Do NOT change or remove the first and last lines inside the file.**
+
+*Both Markdown and HTML syntaxes are supported in the file, but you should stick to Markdown to avoid any unwanted side-effects.*
+
+A table of content is generated automatically for you using the `id="whatever"` occurrences in the compiled `preamble.md` and displayed above the API links in the navbar.
+For this reason, you should use the markdown syntax for headers (# ... ######). This way each header will get a link in the navbar according to its type (h1 to h6).
+
+> If your preamble is no longer displayed in the docs, you can look at the `app.log` file in `<docsPath>` to see what went wrong.
+
+Here is an example:
+
+```markdown
+{{#template name="preamble"}}
+
+# Meteor Project Docs
+*****
+
+## Header 1
+This is paragraph one.
+
+This is paragraph two.
+
+## Header 2
+### Header A
+* Red
+* Green
+* Blue
+### Header B
+* Small
+* Medium
+* Large
+
+{{/template}}
+```
 
 ### Adding documentation to your project
 

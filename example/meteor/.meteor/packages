@@ -8,3 +8,4 @@ meteor-platform
 less
 markdown
 simple:highlight.js
+simple:markdown-templating
