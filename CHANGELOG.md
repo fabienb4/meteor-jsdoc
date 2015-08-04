@@ -5,6 +5,12 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.6.0
+
+- Improved preamble handling. A separate markdown file is now used.
+- Enhanced the build process to make the preamble handling smoother.
+- Improved design for preamble.
+
 ### 0.5.2
 
 - Added preamble support.
