@@ -146,7 +146,7 @@ Template.autoApiBox.helpers({
 
 Template.api_box_args.helpers({
   typeNames: function() {
-    return typeNames(this.type.names);
+    return this.type && typeNames(this.type.names);
   }
 });
 
