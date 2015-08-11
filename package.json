@@ -10,6 +10,10 @@
     "canonical-json": "0.0.x",
     "lodash": "3.10.x"
   },
+  "engines": {
+    "node": ">=0.12"
+  },
+  "engineStrict": true,
   "bin": {
     "meteor-jsdoc": "./bin/meteor-jsdoc"
   },
