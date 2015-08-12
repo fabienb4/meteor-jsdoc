@@ -19,7 +19,7 @@ Template.nav.helpers({
   current: function() {
     return Session.get("urlHash") === this.id ? "current" : "";
   },
-  showPropertyTypes: function() {
+  showAllTypes: function() {
     return Session.get("showAllTypes");
   },
 });
