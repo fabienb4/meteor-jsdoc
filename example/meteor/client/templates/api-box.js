@@ -131,11 +131,9 @@ Template.autoApiBox.helpers({
     if (Session.get("showAllTypes") && this.type) {
       return typeNames(this.type.names);
     }
-
-    return undefined;
   },
   id: function() {
-    return this.longname.replace(/[.#]/g, "-");
+    return this.longname && this.longname.replace(/[.#]/g, "-");
   },
   paramsNoOptions: function() {
     return _.reject(this.params, function(param) {
@@ -146,7 +144,7 @@ Template.autoApiBox.helpers({
 
 Template.api_box_args.helpers({
   typeNames: function() {
-    return typeNames(this.type.names);
+    return this.type && typeNames(this.type.names);
   }
 });
 
