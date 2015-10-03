@@ -57,6 +57,8 @@ This will create a config file in your Meteor project directory:
   // Setting this to false after the first build allows you to customize the Meteor docs server
   // without seeing your changes overridden the next time you build the docs.
   "initMeteor": true,
+  // Update Meteor without overwriting your changes to the docs templates.
+  "updateMeteor": true,
   // Add a preamble to your project's docs that will appear at the top of the docs.
   "preamble": true
 }
