@@ -1,40 +1,40 @@
 Template.registerHelper("sections", function() {
-  var ret = [];
-  var walk = function(items, depth) {
-    _.each(items, function(item) {
+  let ret = [];
+
+  let walk = (items, depth) => {
+    _.each(items, item => {
       // Work around (eg) accidental trailing commas leading to spurious holes
       // in IE8.
-      if (!item)
+      if (! item) {
         return;
+      }
+
       if (item instanceof Array) {
         walk(item, depth + 1);
-        if (depth === 2)
-          ret.push({type: 'spacer', depth: 2});
-      }
-      else {
-        if (typeof(item) === "string")
+
+        if (depth === 2) {
+          ret.push({ type: "spacer", depth: 2 });
+        }
+      } else {
+        if (typeof(item) === "string") {
           item = {name: item};
+        }
 
-        var id = item.name.replace(/[.#]/g, "-");
+        let id = item.name.replace(/[.#]/g, "-");
 
-        ret.push(_.extend({
-          type: "section",
-          depth: depth,
-          id: id,
-        }, item));
+        ret.push(_.extend({ type: "section", depth: depth, id: id, }, item));
       }
     });
   };
 
-  var namespaces = _.groupBy(DocsNames, function(name) {
-    return name.split('.')[0];
-  });
+  let namespaces = _.groupBy(DocsNames, name => name.split('.')[0]);
 
-  var toc = _.chain(namespaces).map(function(functions, namespace) {
-    return [namespace, functions];
-  }).flatten(true).value();
+  let toc = _.chain(namespaces).map(
+    (functions, namespace) => [namespace, functions]
+  ).flatten(true).value();
 
   walk(toc, 1);
+
   return ret;
 });
 

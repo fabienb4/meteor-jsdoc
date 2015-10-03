@@ -5,6 +5,24 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.7.0
+
+- Updated Meteor for docs to 1.2.0.2.
+  - Make use of ES6.
+- Added new config `updateMeteor`. Allow Meteor to be updated without overwriting your changes.
+- Fixed `meteor-jsdoc stop` command.
+
+### 0.6.2
+
+- Fixed meteorPort not being properly validated.
+- Updated Meteor for docs to 1.1.0.3.
+
+### 0.6.1
+
+- node v0.12 or higher required.
+- Added more checks to prevent errors in console.
+- Fixed helper name.
+
 ### 0.6.0
 
 - Improved preamble handling. A separate markdown file is now used.

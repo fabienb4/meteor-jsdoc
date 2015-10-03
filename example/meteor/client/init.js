@@ -1,5 +1,7 @@
-if (typeof DocsData === "undefined")
+if (typeof DocsData === "undefined") {
   DocsData = {};
+}
 
-if (typeof DocsNames === "undefined")
+if (typeof DocsNames === "undefined") {
   DocsNames = [];
+}

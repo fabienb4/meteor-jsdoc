@@ -1,13 +1,13 @@
 Template.preambleToc.helpers({
-  links: function() {
+  links() {
     if (Template.preamble) {
-      var preambleHtml = Template.preamble.renderFunction().value;
-      var toParse      = $("<div/>").append(preambleHtml);
+      let preambleHtml = Template.preamble.renderFunction().value;
+      let toParse      = $("<div/>").append(preambleHtml);
 
       return toParse.find("[id]").toArray();
     }
   },
-  tagNameIs: function(tagName) {
+  tagNameIs(tagName) {
     return this.tagName === tagName;
   }
 });

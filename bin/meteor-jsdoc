@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-var path = require("path");
-var cjson = require("cjson");
-var Config = require("../lib/config");
+var path            = require("path");
+var cjson           = require("cjson");
+var Config          = require("../lib/config");
 var ActionsRegistry = require("../lib/actions");
-var helpers = require("../lib/helpers");
+var helpers         = require("../lib/helpers");
 require("colors");
 
-console.log("\nMeteor JSDoc: Automated JSDoc generation for meteor".bold.blue);
-console.log("------------------------------------------------\n".bold.blue);
+console.log("\rmeteor-jsdoc: Automated JSDoc generation for Meteor projects".bold.blue);
+console.log("-------------------------------------------------------------\n".bold.blue);
 
 var action = process.argv[2];
 

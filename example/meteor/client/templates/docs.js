@@ -1,11 +1,11 @@
 Template.docs.helpers({
-  preambleExists: function() {
+  preambleExists() {
     return !!Template.preamble;
   },
 });
 
 Template.sidebar.helpers({
-  showPreambleToc: function() {
+  showPreambleToc() {
     return !!Template.preamble;
   }
 });

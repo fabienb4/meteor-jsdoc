@@ -1,29 +1,32 @@
-var apiData = function(options) {
+let apiData = options => {
   options = options || {};
 
   if (typeof options === "string") {
     options = {name: options};
   }
 
-  var root = DocsData[options.name];
+  let root = DocsData[options.name];
 
   if (! root) {
     console.log("API Data not found: " + options.name);
   }
 
-  if (_.has(options, 'options')) {
+  if (_.has(options, "options")) {
     root = _.clone(root);
-    var includedOptions = options.options.split(';');
-    root.options = _.filter(root.options, function(option) {
-      return _.contains(includedOptions, option.name);
-    });
+
+    let includedOptions = options.options.split(';');
+
+    root.options = _.filter(
+      root.options,
+      option => _.contains(includedOptions, option.name)
+    );
   }
 
   return root;
 };
 
-var changeNamesIfNeeded = function(nameList) {
-  return _.map(nameList, function(name) {
+let changeNamesIfNeeded = nameList => {
+  return _.map(nameList, name => {
     // decode the "Array.<Type>" syntax
     if (name.slice(0, 7) === "Array.<") {
       // get the part inside angle brackets like in Array<String>
@@ -41,7 +44,7 @@ var changeNamesIfNeeded = function(nameList) {
   });
 };
 
-var toOrSentence = function(array) {
+let toOrSentence = array => {
   if (array.length === 1) {
     return array[0];
   } else if (array.length === 2) {
@@ -51,7 +54,7 @@ var toOrSentence = function(array) {
   return _.initial(array).join(", ") + ", or " + _.last(array);
 };
 
-var typeNames = function(nameList) {
+let typeNames = nameList => {
   // change names if necessary
   nameList = changeNamesIfNeeded(nameList);
   nameList = _.flatten(nameList);
@@ -61,10 +64,10 @@ var typeNames = function(nameList) {
 
 Template.autoApiBox.helpers({
   apiData: apiData,
-  signature: function() {
-    var signature;
-    var escapedLongname = _.escape(this.longname);
-    var params, paramNames;
+  signature() {
+    let signature;
+    let escapedLongname = _.escape(this.longname);
+    let params, paramNames;
 
     if (this.istemplate || this.ishelper) {
       if (this.istemplate) {
@@ -77,8 +80,8 @@ Template.autoApiBox.helpers({
 
       params = this.params;
 
-      paramNames = _.map(params, function(param) {
-        var name = param.name;
+      paramNames = _.map(params, param => {
+        let name = param.name;
 
         name = name + "=" + name;
 
@@ -93,18 +96,14 @@ Template.autoApiBox.helpers({
 
       signature += " }}";
     } else {
-      var beforeParens;
+      let beforeParens = escapedLongname;
 
       if (this.scope === "instance") {
         if (apiData(this.memberof)) {
           beforeParens = "<em>" + apiData(this.memberof).instancename + "</em>." + this.name;
-        } else {
-          beforeParens = escapedLongname;
         }
       } else if (this.kind === "class") {
         beforeParens = "new " + escapedLongname;
-      } else {
-        beforeParens = escapedLongname;
       }
 
       signature = beforeParens;
@@ -113,7 +112,7 @@ Template.autoApiBox.helpers({
       if (_.contains(["function", "class"], this.kind)) {
         params = this.params;
 
-        paramNames = _.map(params, function(param) {
+        paramNames = _.map(params, param => {
           if (param.optional) {
             return "[" + param.name + "]";
           }
@@ -127,34 +126,31 @@ Template.autoApiBox.helpers({
 
     return signature;
   },
-  typeNames: function() {
+  typeNames() {
     if (Session.get("showAllTypes") && this.type) {
       return typeNames(this.type.names);
     }
   },
-  id: function() {
+  id() {
     return this.longname && this.longname.replace(/[.#]/g, "-");
   },
-  paramsNoOptions: function() {
-    return _.reject(this.params, function(param) {
-      return param.name === "options";
-    });
+  paramsNoOptions() {
+    return _.reject(this.params, param => param.name === "options");
   }
 });
 
 Template.api_box_args.helpers({
-  typeNames: function() {
+  typeNames() {
     return this.type && typeNames(this.type.names);
   }
 });
 
-Template.api_box_eg.rendered = function() {
+Template.api_box_eg.onRendered(function() {
   hljs.configure({
     tabReplace: "  ",
     useBR: true,
     languages: ["javascript", "css", "json", "coffeescript"]
   });
-  this.$("code").each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-};
+
+  this.$("code").each((i, block) => hljs.highlightBlock(block));
+});
