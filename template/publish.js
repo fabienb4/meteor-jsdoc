@@ -114,21 +114,19 @@
         return;
       }
 
-      func.options = [];
-
       var filteredParams = [];
 
-      // Starting a param with `options.` makes it an option, not a
+      // Starting a param with `xyz.` makes it a special argument, not a
       // param.  Dot (`.`) in this case binds tighter than comma, so
-      // `options.foo,bar` will create an option named `foo, bar`
-      // (representing two options in the docs).  We process pipes so
-      // that `options.foo|bar` also results in `foo, bar`.
+      // `xyz.foo,bar` will create a special argument named `foo, bar`
+      // (representing two arguments in the docs).  We process pipes so
+      // that `xyz.foo|bar` also results in `foo, bar`.
       _.each(func.params, function(param) {
         param.name = param.name.replace(/,|\|/g, ", ");
 
         var splitName = param.name.split(".");
 
-        if (splitName.length < 2 || splitName[0] !== "options") {
+        if (splitName.length < 2) {
           // not an option
           filteredParams.push(param);
 
@@ -137,7 +135,11 @@
 
         param.name = splitName[1];
 
-        func.options.push(param);
+        if (func[splitName[0]]) {
+          func[splitName[0]].push(param);
+        } else {
+          func[splitName[0]] = [param];
+        }
       });
 
       func.params = filteredParams;

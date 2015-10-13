@@ -134,8 +134,18 @@ Template.autoApiBox.helpers({
   id() {
     return this.longname && this.longname.replace(/[.#]/g, "-");
   },
-  paramsNoOptions() {
-    return _.reject(this.params, param => param.name === "options");
+  arguments() {
+    return _.reject(this.params, param => !! this[param.name]);
+  },
+  specialArguments() {
+    return _.map(this.params, param => {
+      if (this[param.name]) {
+        return {
+          name     : param.name,
+          arguments: this[param.name]
+        }
+      }
+    });
   }
 });
 

@@ -21,23 +21,23 @@
         {{#markdown}}{{summary}}{{/markdown}}
       </div>
 
-      {{#if paramsNoOptions}}
+      {{#if arguments}}
         <h4>Arguments</h4>
         <dl class="args">
-          {{#each paramsNoOptions}}
+          {{#each arguments}}
             {{> api_box_args}}
           {{/each}}
         </dl>
       {{/if}}
 
-      {{#if options}}
-        <h4>Options</h4>
+      {{#each specialArguments}}
+        <h4>{{this.name}}</h4>
         <dl class="args">
-          {{#each options}}
+          {{#each this.arguments}}
             {{> api_box_args}}
           {{/each}}
         </dl>
-      {{/if}}
+      {{/each}}
 
       {{#if returns}}
         <h4>Returns</h4>
