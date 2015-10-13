@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.7.2
+
+- Fixed special arguments' nested arguments.
+
 ### 0.7.1
 
 - Updated jsdoc's file inclusion pattern to recognize `.jsx` files by default.
