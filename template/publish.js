@@ -133,7 +133,11 @@
           return;
         }
 
-        param.name = splitName[1];
+        if (splitName.length > 2) {
+          param.name = _.rest(splitName).join(".");
+        } else {
+          param.name = splitName[1];
+        }
 
         if (func[splitName[0]]) {
           func[splitName[0]].push(param);
