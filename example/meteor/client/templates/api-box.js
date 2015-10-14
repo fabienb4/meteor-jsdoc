@@ -25,19 +25,34 @@ let apiData = options => {
   return root;
 };
 
+let matchArrayTypeInName = name => {
+  if (name.slice(0, 7) === "Array.<") {
+    // get the part inside angle brackets like in Array<String>
+    let regEx    = /^([^>]+)\.<([^>]+)/;
+    let newName  = "Array";
+    let match    = name.match(regEx);
+    let baseType = match[2];
+
+    if (! baseType) {
+      console.log("no array type defined");
+      return newName;
+    }
+
+    if (match[1].match(regEx) !== null) {
+      newName += " of Array";
+    }
+
+    newName += " of " + baseType + "s";
+
+    return newName;
+  }
+};
+
 let changeNamesIfNeeded = nameList => {
   return _.map(nameList, name => {
     // decode the "Array.<Type>" syntax
     if (name.slice(0, 7) === "Array.<") {
-      // get the part inside angle brackets like in Array<String>
-      name = name.match(/<([^>]+)>/)[1];
-
-      if (name) {
-        return "Array of " + name + "s";
-      }
-
-      console.log("no array type defined");
-      return "Array";
+      return matchArrayTypeInName(name);
     }
 
     return name;
