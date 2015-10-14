@@ -153,14 +153,17 @@ Template.autoApiBox.helpers({
     return _.reject(this.params, param => !! this[param.name]);
   },
   specialArguments() {
-    return _.map(this.params, param => {
-      if (this[param.name]) {
-        return {
-          name     : param.name,
-          arguments: this[param.name]
+    return _.filter(
+      _.map(this.params, param => {
+        if (_.isArray(this[param.name])) {
+          return {
+            name     : param.name,
+            arguments: this[param.name]
+          }
         }
-      }
-    });
+      }),
+      specialArgument => specialArgument !== undefined
+    );
   }
 });
 
