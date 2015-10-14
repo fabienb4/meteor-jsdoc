@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.7.3
+
+- Handle proper display of "Array of Array of Types".
+
 ### 0.7.2
 
 - Fixed special arguments' nested arguments.
