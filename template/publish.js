@@ -45,13 +45,16 @@
 
     // generate `.filepath` and `.lineno` from `.meta`
     if (entry.meta && entry.meta.path) {
-      var packagesFolder = 'packages/';
+      var packagesFolder = "packages/";
       var index          = entry.meta.path.indexOf(packagesFolder);
 
       if (index != -1) {
-        var fullFilePath = entry.meta.path.substr(index + packagesFolder.length) + '/' + entry.meta.filename;
+        var fullFilePath = entry.meta.path.substr(index + packagesFolder.length) + "/" + entry.meta.filename;
 
         entry.filepath = fullFilePath;
+        entry.lineno   = entry.meta.lineno;
+      } else {
+        entry.filepath = entry.meta.path + "/" + entry.meta.filename;
         entry.lineno   = entry.meta.lineno;
       }
     }
@@ -59,6 +62,7 @@
     entry.meta = undefined;
 
     names.push(entry.longname);
+
     dataContents[entry.longname] = entry;
   };
 
