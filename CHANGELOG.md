@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.7.5
+
+- Fixed `filepath` & `lineno` to work outside `packages` folder.
+
 ### 0.7.4
 
 - Fixed problem with special arguments detection.
