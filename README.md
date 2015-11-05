@@ -47,7 +47,7 @@ This will create a config file in your Meteor project directory:
 
 ```js
 {
-  // node.js install path, default to: "`which node`"
+  // node.js install path, default to: "`which node`" on Mac and Linux, "`where node`" on Windows
   "nodePath": "",
   // Project docs path
   "docsPath": "~/myproject-docs",
@@ -190,6 +190,8 @@ Second:
     meteor
 
 This will start Meteor as usual with the possibility to `ctrl+c` when you want to stop it.
+
+First method doesn't currently work on Windows.
 
 ### Stopping the Meteor server
 
