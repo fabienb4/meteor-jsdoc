@@ -5,6 +5,11 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.8.0
+
+- Added Windows support.
+- Updated Meteor for docs to 1.2.1.
+
 ### 0.7.5
 
 - Fixed `filepath` & `lineno` to work outside `packages` folder.
