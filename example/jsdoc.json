@@ -1,5 +1,5 @@
 {
-  // node.js install path, default to: "`which node`"
+  // node.js install path, default to: "`which node`" on Mac and Linux, "`where node`" on Windows
   "nodePath": "",
   // Project docs path
   "docsPath": "~/myproject-docs",
