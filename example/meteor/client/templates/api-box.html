@@ -1,6 +1,7 @@
 <template name="apiBoxTitle">
   <h3 id="{{id}}" class="api-title">
     <a class="name selflink" href="#{{id}}" name="{{id}}">{{{name}}}</a>
+    <a class="src-code">{{filepath}}, line {{lineno}}</a>
     {{#if locus}}
       <span class="locus">{{locus}}</span>
     {{/if}}
