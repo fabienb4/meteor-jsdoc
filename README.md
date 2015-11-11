@@ -186,7 +186,17 @@ find: function(/* selector, options */) {
 }
 ```
 
-Add your own markdown by including a @partial. The partial refers to a template with the same name, so you need to create a mdComplicatedFunction**.partial.md** where you write your markdown documentaion. The syntax is the same as preamble.md.
+### Adding additional markdown files a documentation block
+
+Add your own markdown by including a @partial. Make sure you have enabled "markdownInPartial" in `jsdoc.json` (**NOT** enabled by default). 
+
+```js
+  "markdownInPartial": true
+```
+
+The partial refers to a template with the same name, so you need to create a **.partial.md** file where you write your markdown documentaion.
+When building the docs, your files will be found (you can place them anywhere but the .meteor and node_modules directories) and copied inside <docsPath>/client/templates.
+The syntax is the same as preamble.md, but unlike preamble, your partials will be overwritten on every build.
 
 ```js
 /**
