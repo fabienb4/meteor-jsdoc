@@ -4,20 +4,28 @@
     {{#if locus}}
       <span class="locus">{{locus}}</span>
     {{/if}}
+    {{#if filepath}}
+      <a class="src-code" href="{{filepath}}#L{{lineno}}" target="_blank">
+        {{filepath}}, line {{lineno}}
+      </a>
+    {{/if}}
   </h3>
 </template>
 
 <template name="autoApiBox">
   {{#with apiData this}}
+
+    {{#markdown}}{{before}}{{/markdown}}
+
     <div class="api new-api-box">
-      {{> apiBoxTitle name=signature locus=locus id=id}}
+      {{> apiBoxTitle name=signature locus=locus id=id filepath=filepath lineno=lineno}}
 
       <div class="desc">
-        <p>
-          {{#if typeNames}}
+        {{#if typeNames}}
+          <p>
             <span class="type">{{{typeNames}}}</span>
-          {{/if}}
-        </p>
+          </p>
+        {{/if}}
         {{#markdown}}{{summary}}{{/markdown}}
       </div>
 
@@ -43,7 +51,7 @@
         <h4>Returns</h4>
         <dl class="args">
           {{#each returns}}
-              {{> api_box_args}}
+            {{> api_box_args}}
           {{/each}}
         </dl>
       {{/if}}
@@ -55,6 +63,9 @@
         {{> api_box_eg}}
       {{/each}}
     </div>
+
+    {{#markdown}}{{after}}{{/markdown}}
+
   {{/with}}
 </template>
 

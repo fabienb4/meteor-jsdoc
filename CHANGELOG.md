@@ -5,6 +5,17 @@ Automated JSDoc generation for Meteor projects with a Meteor server to output th
 
 ## ChangeLog
 
+### 0.9.0 [BREAKING]
+
+- Improved `filepath`. Now able to display links to the repository under the function/variable name.
+- Added support for `<head>` customization via config.
+- Added `@before` and `@after` custom jsdoc tags to be able to include custom markdown before and after a function/variable's documentation.
+- Cleaned up CSS.
+
+> You need to update your config and templates to use the new features.
+
+> `head.html` is now overridden on build, to customize it, use the `docsConfig` variable in `jsdoc.conf`. Any custom code can go in `preamble.md`.
+
 ### 0.8.0
 
 - Added Windows support.

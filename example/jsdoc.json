@@ -12,5 +12,14 @@
   // Update Meteor without overwriting your changes to the docs templates.
   "updateMeteor": true,
   // Add a preamble to your project's docs that will appear at the top of the docs.
-  "preamble": true
+  "preamble": true,
+  // Link to the project repository (used to construct the file path in the docs). Optional.
+  "projectRepo": "https://github.com/username/myproject/tree/master",
+  // Values to be used in the `<head>` for the docs.
+  "docsConfig": {
+    "title": "Meteor Project Docs",
+    "metas": {
+      "description": "Documentation for a meteor project."
+    }
+  }
 }

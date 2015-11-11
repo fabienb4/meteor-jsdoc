@@ -17,6 +17,7 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 - [Building the docs](#building-the-docs)
 - [Starting the Meteor server](#starting-the-meteor-server)
 - [Stopping the Meteor server](#stopping-the-meteor-server)
+- [Custom jsdoc tags](#custom-jsdoc-tags)
 - [Updating](#updating)
 
 ### Features
@@ -60,7 +61,16 @@ This will create a config file in your Meteor project directory:
   // Update Meteor without overwriting your changes to the docs templates.
   "updateMeteor": true,
   // Add a preamble to your project's docs that will appear at the top of the docs.
-  "preamble": true
+  "preamble": true,
+  // Link to the project repository (used to construct the file path in the docs). Optional.
+  "projectRepo": "https://github.com/username/myproject/tree/master",
+  // Values to be used in the `<head>` for the docs.
+  "docsConfig": {
+    "title": "Meteor Project Docs",
+    "metas": {
+      "description": "Documentation for a meteor project."
+    }
+  }
 }
 ```
 
@@ -69,6 +79,10 @@ This will create a config file in your Meteor project directory:
 "~" can be used to specify your home directory.
 
 When using `meteor-jsdoc build` for the first time, it requires the `initMeteor` setting to be true, otherwise, only the data files will be copied, and you won't be able to start the docs server (there will be none).
+
+`<codeRepo>` is used to construct the link to the repository of your project depending on the current function/variable. With hosts like Github, be sure to include the branch in the link (`/tree/master` or whatever your host uses to link to the branch you want).
+
+`<docsConfig>` allows you to customize the `<head>` of your docs. Each meta gets added according to the key/value.
 
 > For the `jsdoc-conf.json` file see: [Configuring JSDoc](http://usejsdoc.org/about-configuring-jsdoc.html).
 
@@ -200,6 +214,12 @@ If you started the Meteor server for the docs using `meteor-jsdoc start`, and wa
     meteor-jsdoc stop
 
 This will stop the Meteor server associated with `<docsPath>` and `<meteorPort>`.
+
+### Custom jsdoc tags.
+
+- `@before` & `@after`
+
+  These two custom tags are displayed before and after the documentation of a function/variable. You can add them if you want to specify something regarding it but don't want to put everything in the `@summary` (See [example](http://docs.meteor.com/#/full/meteor_publish)). Markdown is supported.
 
 ### Updating
 

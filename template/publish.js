@@ -9,6 +9,7 @@
   var helper    = require("jsdoc/util/templateHelper");
   var _         = require("lodash");
   var stringify = require("canonical-json");
+  var path      = require("path");
 
   // This is the big map of name -> data that we'll write to a file.
   var dataContents = {};
@@ -45,18 +46,10 @@
 
     // generate `.filepath` and `.lineno` from `.meta`
     if (entry.meta && entry.meta.path) {
-      var packagesFolder = "packages/";
-      var index          = entry.meta.path.indexOf(packagesFolder);
+      var currentDir = entry.meta.path.replace(process.env.PWD, "");
 
-      if (index != -1) {
-        var fullFilePath = entry.meta.path.substr(index + packagesFolder.length) + "/" + entry.meta.filename;
-
-        entry.filepath = fullFilePath;
-        entry.lineno   = entry.meta.lineno;
-      } else {
-        entry.filepath = entry.meta.path + "/" + entry.meta.filename;
-        entry.lineno   = entry.meta.lineno;
-      }
+      entry.filepath = process.env.PROJECT_REPO + currentDir + "/" + entry.meta.filename;
+      entry.lineno   = entry.meta.lineno;
     }
 
     entry.meta = undefined;
