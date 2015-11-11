@@ -14,6 +14,7 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 - [Config file](#config-file)
 - [Preamble](#preamble)
 - [Adding documentation to your project](#adding-documentation-to-your-project)
+- [Adding additional markdown files a documentation block](#adding-additional-markdown-files-a-documentation-block)
 - [Building the docs](#building-the-docs)
 - [Starting the Meteor server](#starting-the-meteor-server)
 - [Stopping the Meteor server](#stopping-the-meteor-server)
@@ -188,7 +189,7 @@ find: function(/* selector, options */) {
 
 ### Adding additional markdown files a documentation block
 
-Add your own markdown by including a @partial. Make sure you have enabled "markdownInPartial" in `jsdoc.json` (**NOT** enabled by default). 
+Add your own markdown by including a `@partial` tag. Make sure you have enabled "markdownInPartial" in `jsdoc.json` (**NOT** enabled by default). 
 
 ```js
   "markdownInPartial": true
