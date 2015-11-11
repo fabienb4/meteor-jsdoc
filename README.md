@@ -26,6 +26,7 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 * The generated docs are used as data by a Meteor app which displays a nicely formatted documentation for your app (like the [Meteor Docs](http://docs.meteor.com/#/full/)) at `http://localhost/3333/` (configurable).
 * A configuration file allows project based configuration, avoiding problem of _port already in use_.
 * Markdown supported in `@summary`, `@example` & description in `@param`.
+* Markdown templates can be included by using `@partial`.
 
 ### Installation
 
@@ -73,6 +74,8 @@ This will create a config file in your Meteor project directory:
       "description": "Documentation for a meteor project."
     }
   }
+  // Allows for inclusion of markdown templates using the @partial keyword.
+  "markdownInPartial": false
 }
 ```
 
@@ -181,6 +184,29 @@ Mongo.Collection = function(name, options) {
 find: function(/* selector, options */) {
   /** ... **/
 }
+```
+
+Add your own markdown by including a @partial. The partial refers to a template with the same name, so you need to create a mdComplicatedFunction**.partial.md** where you write your markdown documentaion. The syntax is the same as preamble.md.
+
+```js
+/**
+ * @summary A highly complicated function that needs more documentation
+ * @locus Anywhere
+ * @partial mdComplicatedFunction
+ * @returns {Object}
+ */
+```
+
+In mdComplicatedFunction.partial.md:
+
+```markdown
+{{#template name="mdComplicatedFunction"}}
+
+### Using complicatedFunction
+
+.. .. ..
+
+{{/template}}
 ```
 
 ### Building the docs

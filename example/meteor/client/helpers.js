@@ -49,3 +49,7 @@ Template.registerHelper("depthIs", function(n) {
 Template.registerHelper("isNamespace", function(kind) {
   return kind === "namespace";
 });
+
+Template.registerHelper("hasPartial", function(partial) {
+  return !!partial;
+});

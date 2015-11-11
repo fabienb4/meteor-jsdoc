@@ -19,10 +19,12 @@
       {{#markdown}}{{before}}{{/markdown}}
       {{#markdown}}{{summary}}{{/markdown}}
       {{#markdown}}{{after}}{{/markdown}}
+      
+      {{#if hasPartial partial}}
+        {{> Template.dynamic template=partial}}
+      {{/if}}
     {{else}}
     
-      {{#markdown}}{{before}}{{/markdown}}
-      
       <div class="api new-api-box">
         {{> apiBoxTitle name=signature locus=locus id=id filepath=filepath lineno=lineno}}
 
@@ -71,6 +73,11 @@
       </div>
       
       {{#markdown}}{{after}}{{/markdown}}
+      
+      {{#if hasPartial partial}}
+        {{> Template.dynamic template=partial}}
+      {{/if}}
+      
     {{/if}}
   {{/with}}
 </template>
