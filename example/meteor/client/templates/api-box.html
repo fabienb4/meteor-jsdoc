@@ -15,57 +15,63 @@
 <template name="autoApiBox">
   {{#with apiData this}}
 
-    {{#markdown}}{{before}}{{/markdown}}
+    {{#if isNamespace kind}}
+      {{#markdown}}{{before}}{{/markdown}}
+      {{#markdown}}{{summary}}{{/markdown}}
+      {{#markdown}}{{after}}{{/markdown}}
+    {{else}}
+    
+      {{#markdown}}{{before}}{{/markdown}}
+      
+      <div class="api new-api-box">
+        {{> apiBoxTitle name=signature locus=locus id=id filepath=filepath lineno=lineno}}
 
-    <div class="api new-api-box">
-      {{> apiBoxTitle name=signature locus=locus id=id filepath=filepath lineno=lineno}}
-
-      <div class="desc">
-        {{#if typeNames}}
+        <div class="desc">
           <p>
-            <span class="type">{{{typeNames}}}</span>
+            {{#if typeNames}}
+              <span class="type">{{{typeNames}}}</span>
+            {{/if}}
           </p>
+          {{#markdown}}{{summary}}{{/markdown}}
+        </div>
+      
+        {{#if arguments}}
+          <h4>Arguments</h4>
+          <dl class="args">
+            {{#each arguments}}
+              {{> api_box_args}}
+            {{/each}}
+          </dl>
         {{/if}}
-        {{#markdown}}{{summary}}{{/markdown}}
+
+        {{#each specialArguments}}
+          <h4>{{this.name}}</h4>
+          <dl class="args">
+            {{#each this.arguments}}
+              {{> api_box_args}}
+            {{/each}}
+          </dl>
+        {{/each}}
+
+        {{#if returns}}
+          <h4>Returns</h4>
+          <dl class="args">
+            {{#each returns}}
+                {{> api_box_args}}
+            {{/each}}
+          </dl>
+        {{/if}}
+
+        {{#if examples}}
+          <h4>Example</h4>
+        {{/if}}
+        {{#each examples}}
+          {{> api_box_eg}}
+        {{/each}}
       </div>
-
-      {{#if arguments}}
-        <h4>Arguments</h4>
-        <dl class="args">
-          {{#each arguments}}
-            {{> api_box_args}}
-          {{/each}}
-        </dl>
-      {{/if}}
-
-      {{#each specialArguments}}
-        <h4>{{this.name}}</h4>
-        <dl class="args">
-          {{#each this.arguments}}
-            {{> api_box_args}}
-          {{/each}}
-        </dl>
-      {{/each}}
-
-      {{#if returns}}
-        <h4>Returns</h4>
-        <dl class="args">
-          {{#each returns}}
-            {{> api_box_args}}
-          {{/each}}
-        </dl>
-      {{/if}}
-
-      {{#if examples}}
-        <h4>Example</h4>
-      {{/if}}
-      {{#each examples}}
-        {{> api_box_eg}}
-      {{/each}}
-    </div>
-
-    {{#markdown}}{{after}}{{/markdown}}
-
+      
+      {{#markdown}}{{after}}{{/markdown}}
+    {{/if}}
   {{/with}}
 </template>
 
