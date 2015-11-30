@@ -1,9 +1,19 @@
 meteor-jsdoc
 =========================
 
-Automated JSDoc generation for Meteor projects with a Meteor server to output the docs.
+Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
+
+### 0.10.0
+
+- Changed from `git grep` to `grep` to avoid git/non-git folder problems.
+- Added defaults for configs.
+- Added `debug` config.
+- Logging is now more verbose.
+- Added support for `@constant` kind.
+- Cleanup.
+- Updated README.
 
 ### 0.9.0 [BREAKING]
 
