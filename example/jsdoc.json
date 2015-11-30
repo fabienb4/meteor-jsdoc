@@ -1,4 +1,6 @@
 {
+  // Execute meteor-jsdoc in debug mode to track down errors.
+  "debug": false,
   // node.js install path, default to: "`which node`" on Mac and Linux, "`where node`" on Windows
   "nodePath": "",
   // Project docs path

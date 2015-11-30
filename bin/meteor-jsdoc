@@ -5,10 +5,9 @@ var cjson           = require("cjson");
 var Config          = require("../lib/config");
 var ActionsRegistry = require("../lib/actions");
 var helpers         = require("../lib/helpers");
-require("colors");
 
-console.log("\rmeteor-jsdoc: Automated JSDoc generation for Meteor projects".bold.blue);
-console.log("-------------------------------------------------------------\n".bold.blue);
+helpers.log("\rmeteor-jsdoc: Automated JSDoc generation for Meteor projects");
+helpers.log("-------------------------------------------------------------\n");
 
 var action = process.argv[2];
 
@@ -31,7 +30,7 @@ function runActions(config, cwd) {
   } else {
     if (typeof action !== "undefined") {
       var errorMessage = "No Such Action Exists: " + action;
-      console.error(errorMessage.bold.red);
+      helpers.error(errorMessage);
     }
     helpers.printHelp();
   }

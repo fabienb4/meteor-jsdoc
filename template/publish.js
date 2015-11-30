@@ -80,11 +80,21 @@
       }
     });
 
+    // prepare all of the members
     var properties = helper.find(data, { kind: "member" });
 
     _.each(properties, function(property) {
       if (property.summary) {
         addToData(property);
+      }
+    });
+
+    // prepare all of the constants
+    var constants = helper.find(data, { kind: "constant" });
+
+    _.each(constants, function(constant) {
+      if (constant.summary) {
+        addToData(constant);
       }
     });
 

@@ -4,7 +4,7 @@
 
 Meteor JSDoc is a command line tool which will help with generating documentation for your Meteor project. The result? A website like [Meteor Docs](http://docs.meteor.com/#/full/).
 
-> meteor-jsdoc now uses the development version of jsdoc to provide ES6 support until it is officially released. You might encounter some issues due to jsdoc itself not meteor-jsdoc. If you don't need ES6 support see [Installation](#installation) to install the last version of meteor-jsdoc which isn't using the development version of jsdoc.
+> meteor-jsdoc now uses the development version of jsdoc to provide better support for new Javascript syntax. You might encounter errors due to jsdoc itself, not meteor-jsdoc. Be sure to check the known [issues](https://github.com/jsdoc3/jsdoc/issues).
 
 **Table of Contents**
 
@@ -48,6 +48,8 @@ This will create a config file in your Meteor project directory:
 
 ```js
 {
+  // Execute meteor-jsdoc in debug mode to track down errors.
+  "debug": false,
   // node.js install path, default to: "`which node`" on Mac and Linux, "`where node`" on Windows
   "nodePath": "",
   // Project docs path

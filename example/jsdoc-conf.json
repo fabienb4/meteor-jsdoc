@@ -5,6 +5,7 @@
   },
   "source": {
     "exclude": [
+      ".git",
       ".meteor",
       "node_modules"
     ],
