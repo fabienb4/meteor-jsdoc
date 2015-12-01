@@ -16,12 +16,19 @@ Template.registerHelper("sections", function() {
           ret.push({ type: "spacer", depth: 2 });
         }
       } else {
+        let localDepth = depth;
         if (typeof(item) === "string") {
-          item = {name: item};
+          if (item.split("#").length > 1) {
+            localDepth += 1;
+          }
+          if (item.split(".").length > 1) {
+            localDepth += 1;
+          }
+          item = { name: item, depth: localDepth };
         }
 
         let id = item.name.replace(/[.#]/g, "-");
-
+        
         ret.push(_.extend({ type: "section", depth: depth, id: id, }, item));
       }
     });
