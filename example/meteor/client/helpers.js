@@ -18,12 +18,12 @@ Template.registerHelper("sections", function() {
       } else {
         let localDepth = depth;
         if (typeof(item) === "string") {
-          if (item.split("#").length > 1) {
-            localDepth += 1;
-          }
-          if (item.split(".").length > 1) {
-            localDepth += 1;
-          }
+          // if (item.split("#").length > 1) {
+          //   localDepth += 1;
+          // }
+          // if (item.split(".").length > 1) {
+          //   localDepth += 1;
+          // }
           item = { name: item, depth: localDepth };
         }
 

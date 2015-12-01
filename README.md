@@ -196,7 +196,7 @@ Add your own markdown by including a `@partial` tag. Make sure you have enabled 
 ```
 
 The partial refers to a template with the same name, so you need to create a **.partial.md** file where you write your markdown documentaion.
-When building the docs, your files will be found (you can place them anywhere but the .meteor and node_modules directories) and copied inside <docsPath>/client/templates.
+When building the docs, your files will be found (you can place them anywhere but the .meteor and node_modules directories) and copied inside <docsPath>/client/templates. A good place to have these files could be in a `/docs/` directory.
 The syntax is the same as preamble.md, but unlike preamble, your partials will be overwritten on every build.
 
 ```js
