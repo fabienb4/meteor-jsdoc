@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 0.10.1
+
+- Updated README.
+
 ### 0.10.0
 
 - Changed from `git grep` to `grep` to avoid git/non-git folder problems.
