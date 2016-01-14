@@ -76,7 +76,7 @@ This will create a config file in your Meteor project directory:
 }
 ```
 
-`<docsPath>` has to be in a different folder than your project, or you will end up with a Meteor server inside a Meteor server.
+**`<docsPath>` has to be in a different folder than your project, or you will end up with a Meteor server inside a Meteor server.**
 
 "~" can be used to specify your home directory.
 
@@ -187,7 +187,7 @@ find: function(/* selector, options */) {
 
     meteor-jsdoc build
 
-This will copy a basic Meteor server (`v1.1.0.2`) to the `<docsPath>` directory.
+This will copy a basic Meteor server (`v1.2.1`) to the `<docsPath>` directory.
 And then build the documentation for your project in `<docsPath>/client/data`.
 
 ### Starting the Meteor server
