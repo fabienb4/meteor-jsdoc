@@ -17,7 +17,7 @@ Template.registerHelper("sections", function() {
         }
       } else {
         if (typeof(item) === "string") {
-          item = {name: item};
+          item = { name: item };
         }
 
         let id = item.name.replace(/[.#]/g, "-");

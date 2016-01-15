@@ -65,6 +65,10 @@
     </div>
 
     {{#markdown}}{{after}}{{/markdown}}
+    
+    {{#if partial}}
+      {{> Template.dynamic template=partial}}
+    {{/if}}
 
   {{/with}}
 </template>

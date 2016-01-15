@@ -23,5 +23,7 @@
     "metas": {
       "description": "Documentation for a meteor project."
     }
-  }
+  },
+  // Allows for inclusion of markdown templates using the @partial keyword.
+  "markdownInPartial": false
 }

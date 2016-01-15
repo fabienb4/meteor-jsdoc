@@ -14,6 +14,7 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 - [Config file](#config-file)
 - [Preamble](#preamble)
 - [Adding documentation to your project](#adding-documentation-to-your-project)
+- [Adding additional markdown files a documentation block](#adding-additional-markdown-files-a-documentation-block)
 - [Building the docs](#building-the-docs)
 - [Starting the Meteor server](#starting-the-meteor-server)
 - [Stopping the Meteor server](#stopping-the-meteor-server)
@@ -26,6 +27,7 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 * The generated docs are used as data by a Meteor app which displays a nicely formatted documentation for your app (like the [Meteor Docs](http://docs.meteor.com/#/full/)) at `http://localhost/3333/` (configurable).
 * A configuration file allows project based configuration, avoiding problem of _port already in use_.
 * Markdown supported in `@summary`, `@example` & description in `@param`.
+* Markdown templates can be included by using `@partial`.
 
 ### Installation
 
@@ -73,6 +75,8 @@ This will create a config file in your Meteor project directory:
       "description": "Documentation for a meteor project."
     }
   }
+  // Allows for inclusion of markdown templates using the @partial keyword.
+  "markdownInPartial": false
 }
 ```
 
@@ -181,6 +185,39 @@ Mongo.Collection = function(name, options) {
 find: function(/* selector, options */) {
   /** ... **/
 }
+```
+
+### Adding additional markdown files a documentation block
+
+Add your own markdown by including a `@partial` tag. Make sure you have enabled "markdownInPartial" in `jsdoc.json` (**NOT** enabled by default). 
+
+```js
+  "markdownInPartial": true
+```
+
+The partial refers to a template with the same name, so you need to create a **.partial.md** file where you write your markdown documentaion.
+When building the docs, your files will be found (you can place them anywhere but the .meteor and node_modules directories) and copied inside <docsPath>/client/templates. A good place to have these files could be in a `/docs/` directory.
+The syntax is the same as preamble.md, but unlike preamble, your partials will be overwritten on every build.
+
+```js
+/**
+ * @summary A highly complicated function that needs more documentation
+ * @locus Anywhere
+ * @partial mdComplicatedFunction
+ * @returns {Object}
+ */
+```
+
+In mdComplicatedFunction.partial.md:
+
+```markdown
+{{#template name="mdComplicatedFunction"}}
+
+### Using complicatedFunction
+
+.. .. ..
+
+{{/template}}
 ```
 
 ### Building the docs
