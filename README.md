@@ -4,7 +4,9 @@
 
 Meteor JSDoc is a command line tool which will help with generating documentation for your Meteor project. The result? A website like [Meteor Docs](http://docs.meteor.com/#/full/).
 
-> meteor-jsdoc now uses the development version of jsdoc to provide better support for new Javascript syntax. You might encounter errors due to jsdoc itself, not meteor-jsdoc. Be sure to check the known [issues](https://github.com/jsdoc3/jsdoc/issues).
+> meteor-jsdoc uses the development version of jsdoc to provide better support for new Javascript syntax. You might encounter errors due to jsdoc itself, not meteor-jsdoc. Be sure to check the known [issues](https://github.com/jsdoc3/jsdoc/issues).
+
+> Windows support is still in the early stage, but please do report anything that isn't working properly.
 
 **Table of Contents**
 
@@ -22,8 +24,8 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 
 ### Features
 
-* Based on the scripts & templates from Meteor own docs.
-* The generated docs are used as data by a Meteor app which displays a nicely formatted documentation for your app (like the [Meteor Docs](http://docs.meteor.com/#/full/)) at `http://localhost/3333/` (configurable).
+* Based on the templates from Meteor own docs.
+* The generated docs are used as data by a Meteor app which displays a nicely formatted documentation for your app (like the [Meteor Docs](http://docs.meteor.com/#/full/)) at `http://localhost:3333/` (configurable).
 * A configuration file allows project based configuration, avoiding problem of _port already in use_.
 * Markdown supported in `@summary`, `@example` & description in `@param`.
 
@@ -45,6 +47,12 @@ This will create a config file in your Meteor project directory:
 `jsdoc.json`.
 
 ### Config file
+
+Show current configuration:
+
+    meteor-jsdoc conf
+
+Default config:
 
 ```js
 {

@@ -5,11 +5,12 @@
   // This file receives data from JSDoc via the `publish` exported function,
   // and converts it into JSON that is written to a file.
 
-  var fs        = require("jsdoc/fs");
-  var helper    = require("jsdoc/util/templateHelper");
-  var _         = require("lodash");
-  var stringify = require("canonical-json");
-  var path      = require("path");
+  const fs        = require("jsdoc/fs");
+  const helper    = require("jsdoc/util/templateHelper");
+  const each      = require("lodash/each");
+  const extend    = require("lodash/extend");
+  const stringify = require("canonical-json");
+  const path      = require("path");
 
   // This is the big map of name -> data that we'll write to a file.
   var dataContents = {};
@@ -26,7 +27,7 @@
     var tagDict = {};
 
     if (data.tags) {
-      _.each(data.tags, function(tag) {
+      each(data.tags, function(tag) {
         tagDict[tag.title] = tag.value;
       });
     }
@@ -36,7 +37,7 @@
 
   // Fix up a JSDoc entry and add it to `dataContents`.
   var addToData = function(entry) {
-    _.extend(entry, getTagDict(entry));
+    extend(entry, getTagDict(entry));
 
     // strip properties we don't want
     entry.comment = undefined;
@@ -74,7 +75,7 @@
     var namespaces = helper.find(data, { kind: "namespace" });
 
     // prepare all of the namespaces
-    _.each(namespaces, function(namespace) {
+    each(namespaces, function(namespace) {
       if (namespace.summary) {
         addToData(namespace);
       }
@@ -83,7 +84,7 @@
     // prepare all of the members
     var properties = helper.find(data, { kind: "member" });
 
-    _.each(properties, function(property) {
+    each(properties, function(property) {
       if (property.summary) {
         addToData(property);
       }
@@ -92,7 +93,7 @@
     // prepare all of the constants
     var constants = helper.find(data, { kind: "constant" });
 
-    _.each(constants, function(constant) {
+    each(constants, function(constant) {
       if (constant.summary) {
         addToData(constant);
       }
@@ -103,7 +104,7 @@
     // them later.
     var callbacks = helper.find(data, { kind: "typedef" });
 
-    _.each(callbacks, function(cb) {
+    each(callbacks, function(cb) {
       delete cb.comment;
       addToData(cb);
     });
@@ -115,7 +116,7 @@
     functions = functions.concat(constructors);
 
     // insert all of the function data into the namespaces
-    _.each(functions, function(func) {
+    each(functions, function(func) {
       if (! func.summary) {
         // we use the @summary tag to indicate that an item is documented
         return;
@@ -128,7 +129,7 @@
       // `xyz.foo,bar` will create a special argument named `foo, bar`
       // (representing two arguments in the docs).  We process pipes so
       // that `xyz.foo|bar` also results in `foo, bar`.
-      _.each(func.params, function(param) {
+      each(func.params, function(param) {
         param.name = param.name.replace(/,|\|/g, ", ");
 
         var splitName = param.name.split(".");

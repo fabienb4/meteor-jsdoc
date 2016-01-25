@@ -5,6 +5,15 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 0.20.0 [BREAKING]
+
+- Updated nodejs requirement to >= 5.5.
+- Updated dependencies.
+- Updated code to be more Windows friendly (needs testing).
+- Removed use of bash scripts. Node now handles everything.
+- Added `meteor-jsdoc conf` command (show current configuration in the console).
+- Updated README.
+
 ### 0.10.1
 
 - Updated README.
