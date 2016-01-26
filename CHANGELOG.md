@@ -5,6 +5,11 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 0.20.1 [TEMPLATE UPDATE]
+
+- Fixed preamble TOC rendering on non-chrome based browsers.
+- Fixed preamble HTML parsing.
+
 ### 0.20.0 [BREAKING]
 
 - Updated nodejs requirement to >= 5.5.
