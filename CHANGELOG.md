@@ -9,6 +9,10 @@ Automated JSDoc generation for Meteor projects.
 
 - Fixed preamble TOC rendering on non-chrome based browsers.
 - Fixed preamble HTML parsing.
+- More Windows compatibility fixes.
+- Updated README.
+
+> This update changed the default template used by the docs server. You need to update the files manually if you have `initMeteor: false` in your config.
 
 ### 0.20.0 [BREAKING]
 
