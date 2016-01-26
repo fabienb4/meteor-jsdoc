@@ -6,8 +6,6 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 
 > meteor-jsdoc uses the development version of jsdoc to provide better support for new Javascript syntax. You might encounter errors due to jsdoc itself, not meteor-jsdoc. Be sure to check the known [issues](https://github.com/jsdoc3/jsdoc/issues).
 
-> Windows support is still in the early stage, but please do report anything that isn't working properly.
-
 **Table of Contents**
 
 - [Features](#features)
@@ -28,6 +26,8 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 * The generated docs are used as data by a Meteor app which displays a nicely formatted documentation for your app (like the [Meteor Docs](http://docs.meteor.com/#/full/)) at `http://localhost:3333/` (configurable).
 * A configuration file allows project based configuration, avoiding problem of _port already in use_.
 * Markdown supported in `@summary`, `@example` & description in `@param`.
+
+> Remember to check the [CHANGELOG](CHANGELOG.md) file when a new update with `[BREAKING]` or `[TEMPLATE UPDATE]` is released to make sure you are not missing new features!
 
 ### Installation
 
