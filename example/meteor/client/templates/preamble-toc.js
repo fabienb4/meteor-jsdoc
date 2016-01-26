@@ -1,7 +1,7 @@
 Template.preambleToc.helpers({
   links() {
     if (Template.preamble) {
-      let preambleHtml = Template.preamble.renderFunction().value;
+      let preambleHtml = UI.toHTML(Template.preamble);
       let toParse      = $("<div/>").append(preambleHtml);
 
       return toParse.find("[id]").toArray();
