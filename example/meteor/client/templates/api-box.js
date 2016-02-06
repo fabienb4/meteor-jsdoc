@@ -2,7 +2,7 @@ let apiData = options => {
   options = options || {};
 
   if (typeof options === "string") {
-    options = {name: options};
+    options = { name: options };
   }
 
   let root = DocsData[options.name];

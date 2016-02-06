@@ -40,10 +40,10 @@
     extend(entry, getTagDict(entry));
 
     // strip properties we don't want
-    entry.comment = undefined;
-    entry.___id   = undefined;
-    entry.___s    = undefined;
-    entry.tags    = undefined;
+    // entry.comment = undefined;
+    entry.___id = undefined;
+    entry.___s  = undefined;
+    entry.tags  = undefined;
 
     // generate `.filepath` and `.lineno` from `.meta`
     if (entry.meta && entry.meta.path) {
@@ -147,7 +147,7 @@
           param.name = splitName[1];
         }
 
-        if (func[splitName[0]]) {
+        if (typeof func[splitName[0]] === 'object') {
           func[splitName[0]].push(param);
         } else {
           func[splitName[0]] = [param];
@@ -156,9 +156,11 @@
 
       func.params = filteredParams;
 
-      // the entire unparsed doc comment.  takes up too much room in the
-      // data file.
-      delete func.comment;
+      if (typeof func.comment === 'string') {
+        // the entire unparsed doc comment.  takes up too much room in the
+        // data file.
+        delete func.comment;
+      }
 
       addToData(func);
     });
