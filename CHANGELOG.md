@@ -5,6 +5,11 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 0.20.2
+
+- Fixed jsdoc debug logs not showing.
+- Fixed `@param` named `comment` handling.
+
 ### 0.20.1 [TEMPLATE UPDATE]
 
 - Fixed preamble TOC rendering on non-chrome based browsers.
