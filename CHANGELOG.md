@@ -5,6 +5,34 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 1.0.0 [BREAKING]
+
+- Added `@isMethod` JSDOC tag.
+- Updated README to explain how to use `@isHelper`, `@isTemplate` and `@isMethod`.
+- Added responsive layout.
+- Added search feature.
+- Fixed a bunch of problems.
+
+> The layout of the Meteor docs server has changed a lot in this update. You will need to update the files in the docs.
+
+> If you don't have any customization, just delete the `<docsPath>` folder and make sure `initMeteor` is `true` in your config. This will recreate the docs with the new version automatically.
+
+> If you have customized templates, you will need to modify the files manually. Check the commit to get the new content for each of these files.
+```
+Files that changed:
+ADDED:    `client/templates/layout.html`
+ADDED:    `client/templates/layout.js`
+ADDED:    `client/templates/search.html`
+ADDED:    `client/templates/search.js`
+REMOVED:  `client/head.html`
+MODIFIED: `client/helpers.js`
+MODIFIED: `client/templates/api-box.js`
+MODIFIED: `client/templates/docs.html`
+MODIFIED: `client/templates/docs.less`
+MODIFIED: `client/templates/tableOfContents.html`
+MODIFIED: `client/templates/tableOfContents.js`
+```
+
 ### 0.20.2
 
 - Fixed jsdoc debug logs not showing.

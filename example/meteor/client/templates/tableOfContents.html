@@ -25,7 +25,15 @@
           {{#if instance}}
             <i>{{instance}}</i>.
           {{/if}}
-          {{name}}
+          {{#if templateHelper}}
+            {{#if depthIs 1}}
+              Template helper
+            {{else}}
+              {{nameBraced}}
+            {{/if}}
+          {{else}}
+            {{name}}
+          {{/if}}
         </a>
       {{/nav_section}}
     {{/if}}

@@ -311,7 +311,8 @@ h3.api-title {
 }
 
 .api h3.api-title {
-  margin: 0;
+  margin  : 0;
+  overflow: auto;
 }
 
 .api h4 {
@@ -437,25 +438,25 @@ ol {
 }
 
 #nav {
-  display   : block;
-  position  : fixed;
-  width     : @nav-width;
-  height    : 100%;
-  top       : 0;
-  overflow-y: scroll;
+  display                   : block;
+  position                  : fixed;
+  width                     : @nav-width;
+  height                    : 100%;
+  top                       : 0;
+  overflow-y                : scroll;
 }
 
 .main-content {
-  position   : absolute;
-  width      : 100%;
-  top        : @top-bar-height;
-  bottom     : 0;
-  z-index    : 1;
-  background : white;
-  overflow-y : scroll;
-  overflow-x : hidden;
-  margin-left: 0;
-  transition : margin-left 300ms ease-out;
+  position                  : absolute;
+  width                     : 100%;
+  top                       : @top-bar-height;
+  bottom                    : 0;
+  z-index                   : 1;
+  background                : white;
+  overflow-y                : scroll;
+  overflow-x                : hidden;
+  margin-left               : 0;
+  transition                : margin-left 300ms ease-out;
 }
 
 .overlay {

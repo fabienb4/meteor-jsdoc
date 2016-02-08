@@ -17,12 +17,19 @@ Template.registerHelper("sections", function() {
         }
       } else {
         if (typeof(item) === "string") {
-          item = {name: item};
+          item     = { name: item };
+          let data = DocsData[item.name];
+
+          if (data && data.ishelper) {
+            item.templateHelper = true;
+          } else if (item.name[0] === '"' && item.name[item.name.length -1] !== '"') {
+            item.name = item.name.replace('"', '') + " methods";
+          }
         }
 
         let id = item.name.replace(/[.#]/g, "-");
 
-        ret.push(_.extend({ type: "section", depth: depth, id: id, }, item));
+        ret.push(_.extend({ type: "section", depth, id }, item));
       }
     });
   };

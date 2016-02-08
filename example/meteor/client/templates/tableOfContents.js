@@ -11,6 +11,9 @@ Session.setDefault("showAllTypes", false);
 Template.nav.events({
   "change .show-all-types input"(event) {
     Session.set("showAllTypes", event.target.checked);
+  },
+  "click a"() {
+    Session.set("sidebarOpen", false);
   }
 });
 
@@ -21,4 +24,7 @@ Template.nav.helpers({
   showAllTypes() {
     return Session.get("showAllTypes");
   },
+  nameBraced() {
+    return "{{ " + this.name + " }}";
+  }
 });

@@ -1,0 +1,47 @@
+<head>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.png?123" sizes="16x16 32x32 64x64">
+  <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-precomposed.png">
+  <% Object.keys(metas).forEach(function(key) { %>
+  <meta name="<%= key %>" content="<%= metas[key] %>">
+  <% }) %>
+</head>
+
+<body>
+  <div class="body {{openSidebar}}">
+    {{> search}}
+    <div id="nav">
+      {{> sidebar}}
+    </div>
+    <div class="overlay close-sidebar"></div>
+    {{> topBar}}
+    <div class="main-content">
+      <div id="main">
+        <div><div id="top"></div></div>
+        {{> docs}}
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name="sidebar">
+  <div id="nav-inner">
+    {{#if showPreambleToc}}
+      <div id="preamble-toc">
+        {{> preambleToc}}
+      </div>
+    {{/if}}
+    {{> tableOfContents}}
+  </div>
+</template>
+
+<template name="topBar">
+  <div class="top-bar">
+    <div class="hamburger-menu-target open-sidebar">
+      <div class="hamburger-menu"></div>
+    </div>
+    <h1><%= title %></h1>
+  </div>
+</template>

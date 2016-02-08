@@ -4,6 +4,8 @@
 
 Meteor JSDoc is a command line tool which will help with generating documentation for your Meteor project. The result? A website like [Meteor Docs](http://docs.meteor.com/#/full/).
 
+> **If you are updating to 1.0.0, please check the [CHANGELOG](CHANGELOG.md) to do it properly.**
+
 > meteor-jsdoc uses the development version of jsdoc to provide better support for new Javascript syntax. You might encounter errors due to jsdoc itself, not meteor-jsdoc. Be sure to check the known [issues](https://github.com/jsdoc3/jsdoc/issues).
 
 **Table of Contents**
@@ -226,6 +228,51 @@ If you started the Meteor server for the docs using `meteor-jsdoc start`, and wa
 This will stop the Meteor server associated with `<docsPath>` and `<meteorPort>`.
 
 ### Custom jsdoc tags.
+
+- `@isHelper true`
+```js
+  /**
+   * @global
+   * @name  currentUser
+   * @isHelper true
+   * @summary Calls [Meteor.user()](#meteor_user). Use `{{#if currentUser}}` to check whether the user is logged in.
+   */
+  Package.blaze.Blaze.Template.registerHelper('currentUser', function () {
+    return Meteor.user();
+  });
+```
+
+- `@isTemplate true`
+```js
+/**
+ * @isTemplate true
+ * @memberOf Template
+ * @function dynamic
+ * @summary Choose a template to include dynamically, by name.
+ * @locus Templates
+ * @param {String} template The name of the template to include.
+ * @param {Object} [data] Optional. The data context in which to include the
+ * template.
+ */
+```
+
+- `@isMethod true`
+
+```js
+Meteor.methods({
+  /**
+   * @summary Meteor.methods wrapper for [Users.setRole](#Users-setRole).
+   * @isMethod true
+   * @locus Anywhere
+   * @param  {String} role The role to set.
+   */
+  'Users.setRole'(role) {
+    if (this.userId) {
+      Users.setRole(this.userId, role);
+    }
+  }
+});
+```
 
 - `@before` & `@after`
 

@@ -110,6 +110,19 @@ Template.autoApiBox.helpers({
       signature += " " + paramNames.join(" ");
 
       signature += " }}";
+    } else if (this.ismethod) {
+      signature = "Meteor.call(" + escapedLongname + ", ";
+      params    = this.params;
+
+      paramNames = _.map(params, param => {
+        if (param.optional) {
+          return "[" + param.name + "]";
+        }
+
+        return param.name;
+      });
+
+      signature += paramNames.join(", ") + ")";
     } else {
       let beforeParens = escapedLongname;
 
