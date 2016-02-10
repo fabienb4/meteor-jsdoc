@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 1.0.1
+
+- Added prerequisites in README.
+
 ### 1.0.0 [BREAKING]
 
 - Added `@isMethod` JSDOC tag.
