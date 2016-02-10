@@ -33,11 +33,13 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 
 ### Installation
 
+Prerequisites:
+
+    node >= 5.5
+
+Installation:
+
     npm install -g meteor-jsdoc
-
-If you are having issues and don't need ES6 support, use:
-
-    npm install -g meteor-jsdoc@0.4.2
 
 ### Initializing a project
 
