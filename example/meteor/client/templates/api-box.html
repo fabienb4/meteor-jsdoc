@@ -5,7 +5,7 @@
       <span class="locus">{{locus}}</span>
     {{/if}}
     {{#if filepath}}
-      <a class="src-code" href="{{filepath}}#L{{lineno}}" target="_blank">
+      <a class="src-code" href="{{fileLink}}" target="_blank">
         {{filepath}}, line {{lineno}}
       </a>
     {{/if}}
@@ -18,7 +18,7 @@
     {{#markdown}}{{before}}{{/markdown}}
 
     <div class="api new-api-box">
-      {{> apiBoxTitle name=signature locus=locus id=id filepath=filepath lineno=lineno}}
+      {{> apiBoxTitle name=signature locus=locus id=id filename=filename filepath=filepath lineno=lineno}}
 
       <div class="desc">
         {{#if typeNames}}

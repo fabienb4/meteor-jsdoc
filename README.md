@@ -28,6 +28,7 @@ Meteor JSDoc is a command line tool which will help with generating documentatio
 * The generated docs are used as data by a Meteor app which displays a nicely formatted documentation for your app (like the [Meteor Docs](http://docs.meteor.com/#/full/)) at `http://localhost:3333/` (configurable).
 * A configuration file allows project based configuration, avoiding problem of _port already in use_.
 * Markdown supported in `@summary`, `@example` & description in `@param`.
+* Support linking to files in Github or Bitbucket repositories.
 
 > Remember to check the [CHANGELOG](CHANGELOG.md) file when a new update with `[BREAKING]` or `[TEMPLATE UPDATE]` is released to make sure you are not missing new features!
 
@@ -94,7 +95,12 @@ Default config:
 
 When using `meteor-jsdoc build` for the first time, it requires the `initMeteor` setting to be true, otherwise, only the data files will be copied, and you won't be able to start the docs server (there will be none).
 
-`<codeRepo>` is used to construct the link to the repository of your project depending on the current function/variable. With hosts like Github, be sure to include the branch in the link (`/tree/master` or whatever your host uses to link to the branch you want).
+`<projectRepo>` is used to construct the link to the repository of your project depending on the current function/variable.
+> With Github, be sure to include the branch in the link (`/blob/master`).
+Example: `https://github.com/fabienb4/meteor-jsdoc/blob/master`
+
+> With Bitbucket, be sure to include the hash of the current branch in the link.
+Example: `https://bitbucket.org/FabienB4/meteor-jsdoc/src/ea598ce045211ee2f5db0ba50e594t96549acdad`
 
 `<docsConfig>` allows you to customize the `<head>` of your docs. Each meta gets added according to the key/value.
 

@@ -77,6 +77,18 @@ let typeNames = nameList => {
   return toOrSentence(nameList);
 };
 
+Template.apiBoxTitle.helpers({
+  fileLink() {
+    if (this.filepath.indexOf('github.com') !== -1) {
+      return `${this.filepath}#L${this.lineno}`;
+    } else if (this.filepath.indexOf('bitbucket.org') !== -1) {
+      return `${this.filepath}#${this.filename}-${this.lineno}`;
+    } else {
+      return `${this.filepath}#${this.lineno}`;
+    }
+  }
+});
+
 Template.autoApiBox.helpers({
   apiData: apiData,
   signature() {

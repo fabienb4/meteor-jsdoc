@@ -1,6 +1,6 @@
 {
   "name": "meteor-jsdoc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automated JSDoc generation for Meteor projects with a Meteor server to output the docs.",
   "dependencies": {
     "ejs": "2.4.x",

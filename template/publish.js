@@ -49,7 +49,8 @@
     if (entry.meta && entry.meta.path) {
       var currentDir = entry.meta.path.replace(process.env.PWD, "");
 
-      entry.filepath = process.env.PROJECT_REPO + currentDir + "/" + entry.meta.filename;
+      entry.filename = entry.meta.filename;
+      entry.filepath = process.env.PROJECT_REPO + currentDir + "/" + entry.filename;
       entry.lineno   = entry.meta.lineno;
     }
 

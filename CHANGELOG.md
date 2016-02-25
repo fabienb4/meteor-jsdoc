@@ -5,6 +5,11 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 1.0.2
+
+- Added Bitbucket repositories support for file links.
+- Updated README.
+
 ### 1.0.1
 
 - Added prerequisites in README.
