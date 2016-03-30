@@ -5,6 +5,14 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 1.0.3
+
+- Better namespace handling. (Thanks @serut)
+- Fail and log if error when building.
+- Updated Meteor for docs to 1.3.
+- Updated dependencies.
+- Updated README.
+
 ### 1.0.2
 
 - Added Bitbucket repositories support for file links.

@@ -38,6 +38,8 @@ Prerequisites:
 
     node >= 5.5
 
+**On Windows, you must have git bash with Unix tools installed (find, xargs, grep are required).**
+
 Installation:
 
     npm install -g meteor-jsdoc
