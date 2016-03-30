@@ -34,7 +34,7 @@ Template.registerHelper("sections", function() {
     });
   };
 
-  let namespaces = _.groupBy(DocsNames, name => name.split('.')[0]);
+  let namespaces = _.groupBy(DocsNames, name => name.split(/[\.#]+/)[0]);
 
   let toc = _.chain(namespaces).map(
     (functions, namespace) => [namespace, functions]
