@@ -123,7 +123,7 @@ Template.autoApiBox.helpers({
 
       signature += " }}";
     } else if (this.ismethod) {
-      signature = "Meteor.call(" + escapedLongname + ", ";
+      signature = "Meteor.call(\"" + escapedLongname + "\", ";
       params    = this.params;
 
       paramNames = _.map(params, param => {

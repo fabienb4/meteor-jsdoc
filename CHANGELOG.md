@@ -5,6 +5,10 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 1.0.4
+
+- Fixed missing quotes for `@isMethod`.
+
 ### 1.0.3
 
 - Better namespace handling. (Thanks @serut)
