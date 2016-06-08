@@ -131,6 +131,8 @@
       // (representing two arguments in the docs).  We process pipes so
       // that `xyz.foo|bar` also results in `foo, bar`.
       each(func.params, function(param) {
+        param.name = param.name || '';
+
         param.name = param.name.replace(/,|\|/g, ", ");
 
         var splitName = param.name.split(".");
