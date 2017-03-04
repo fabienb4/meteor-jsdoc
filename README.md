@@ -1,5 +1,7 @@
 # Meteor JSDoc
 
+> **I am looking for someone to take over this package, if you are interested in maintaining it, please send me an email.**
+
 #### Automated JSDoc generation for Meteor projects
 
 Meteor JSDoc is a command line tool which will help with generating documentation for your Meteor project. The result? A website like [Meteor Docs](http://docs.meteor.com/#/full/).
