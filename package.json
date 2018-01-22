@@ -3,7 +3,7 @@
   "version": "1.0.4",
   "description": "Automated JSDoc generation for Meteor projects with a Meteor server to output the docs.",
   "dependencies": {
-    "ejs": "2.4.x",
+    "ejs": "2.5.x",
     "cjson": "0.4.x",
     "colors": "1.1.x",
     "jsdoc": "jsdoc3/jsdoc",
