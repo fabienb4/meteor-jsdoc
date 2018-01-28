@@ -11,6 +11,7 @@
   const extend    = require("lodash/extend");
   const stringify = require("canonical-json");
   const path      = require("path");
+  const _         = require("underscore");
 
   // This is the big map of name -> data that we'll write to a file.
   var dataContents = {};
